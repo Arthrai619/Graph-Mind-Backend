@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  postgres_db:
+    image: postgres:15
+    container_name: gm_postgres_new
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: arth_password
+      POSTGRES_DB: gm_auth
+    ports:
+      - "5433:5432"
+
+  neo4j_db:
+    image: neo4j:5.12
+    container_name: gm_neo4j_new
+    environment:
+      NEO4J_AUTH: neo4j/graphpassword123
+    ports:
+      - "7474:7474"
+      - "7687:7687"
